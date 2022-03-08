@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA , READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000                 ENTRY
+   10 00000000         Reset_Handler
+   11 00000000 4806            LDR              R0, = Src
+   12 00000002 4A07            LDR              R2, = Dst
+   13 00000004         
+   14 00000004 6841            LDR              R1, [R0, #4]
+   15 00000006 6051            STR              R1, [R2, #4]
+   16 00000008         
+   17 00000008 6841            LDR              R1, [R0, #4]
+   18 0000000A 6051            STR              R1, [R2, #4]
+   19 0000000C         
+   20 0000000C 6841            LDR              R1, [R0, #4]
+   21 0000000E 6051            STR              R1, [R2, #4]
+   22 00000010         
+   23 00000010         
+   24 00000010         
+   25 00000010         
+   26 00000010 12345678 
+              00000055 
+              00751234 Src     DCD              0x12345678 , 0x55, 0x751234
+   27 0000001C 00000000 
+              00000000         AREA             DATASEG , DATA, READWRITE
+   28 00000000 00000000 
+              00000000 
+              00000000 Dst     DCD              0,0,0
+   29 0000000C                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=prac.d -
+oprac.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NX
+P\LPC17xx --predefine="__EVAL SETA 1" --list=prac.lst prac.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file prac.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file prac.s
+   Uses
+      At line 2 in file prac.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file prac.s
+   Uses
+      At line 5 in file prac.s
+      At line 8 in file prac.s
+
+Src 00000010
+
+Symbol: Src
+   Definitions
+      At line 26 in file prac.s
+   Uses
+      At line 11 in file prac.s
+Comment: Src used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file prac.s
+   Uses
+      None
+Comment: mycode unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 27 in file prac.s
+   Uses
+      None
+Comment: DATASEG unused
+Dst 00000000
+
+Symbol: Dst
+   Definitions
+      At line 28 in file prac.s
+   Uses
+      At line 12 in file prac.s
+Comment: Dst used once
+2 symbols
+340 symbols in table

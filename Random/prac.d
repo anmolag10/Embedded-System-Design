@@ -1,0 +1,1 @@
+prac.o: prac.s
